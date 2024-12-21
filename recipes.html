@@ -18,7 +18,7 @@
             color: #333;
         }
 
- /* Navbar Styles */
+        /* Navbar Styles */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -37,6 +37,11 @@
             display: flex;
             align-items: center;
             gap: 10px;
+        }
+
+        .navbar .logo img {
+            width: 50px;
+            height: 50px;
         }
 
         .navbar .logo span {
@@ -95,67 +100,8 @@
             background: #e0a800;
         }
 
-        /* Hamburger Menu */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-        }
-
-        .hamburger span {
-            display: block;
-            width: 25px;
-            height: 3px;
-            background: white;
-            transition: all 0.3s;
-        }
-
-        /* Mobile Menu */
-        .mobile-menu {
-            display: none;
-            flex-direction: column;
-            position: fixed;
-            top: 70px;
-            right: 0;
-            width: 70%;
-            height: 100vh;
-            background: rgba(0, 0, 0, 0.9);
-            padding: 20px;
-            gap: 20px;
-            z-index: 999;
-        }
-
-        .mobile-menu a {
-            text-decoration: none;
-            color: white;
-            font-size: 1.2rem;
-            transition: color 0.3s;
-        }
-
-        .mobile-menu a:hover {
-            color: #ffc107;
-        }
-
-        .mobile-menu .buttons {
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .show-menu {
-            display: flex;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .navbar .nav-links,
-            .navbar .buttons {
-                display: none;
-            }
-
-            .hamburger {
-                display: flex;
-            }
+        .container {
+            padding: 120px 40px;
         }
 
         h1 {
@@ -246,39 +192,25 @@
     </style>
 </head>
 <body>
-           <!-- Navbar -->
-    <nav class="navbar">
-        <div class="logo">
-            <span>Mindful Munch</span>
-        </div>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="quiz.html">Take the Quiz</a>
-            <a href="recipes.html">Healthy Recipes</a>
-            <a href="hub.html">Mental Health Hub</a>
-        </div>
-        <div class="buttons">
-            <a href="login.html" class="login">Login</a>
-            <a href="signup.html" class="connect">Sign Up</a>
-        </div>
-        <div class="hamburger" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </nav>
+         <!-- Navbar -->
+         <nav class="navbar">
+            <div class="logo">
+              
+                <span>Mindful Munch</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="quiz.html">Take the Quiz</a>
+                <a href="recipes.html">Healthy Recipes</a>
+               
+                <a href="hub.html">Mental Health Hub</a>
+            </div>
+            <div class="buttons">
+                <a href="login.html" class="login">Login</a>
+                <a href="signup.html" class="connect">Sign Up</a>
+            </div>
+        </nav>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="index.html">Home</a>
-        <a href="quiz.html">Take the Quiz</a>
-        <a href="recipes.html">Healthy Recipes</a>
-        <a href="hub.html">Mental Health Hub</a>
-        <div class="buttons">
-            <a href="login.html" class="login">Login</a>
-            <a href="signup.html" class="connect">Sign Up</a>
-        </div>
-    </div>
 
     <!-- Content -->
     <div class="container">
@@ -362,13 +294,6 @@
             </div>
         </div>
     </div>
-
-     <script>
-        function toggleMenu() {
-            const mobileMenu = document.getElementById('mobileMenu');
-            mobileMenu.classList.toggle('show-menu');
-        }
-    </script>
 
      <!-- Footer -->
      <footer>
