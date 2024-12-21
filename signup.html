@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | Mindful Munch</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(90deg, #ff6a00, #ffc107);
+        }
+
+        .container {
+            background: white;
+            width: 400px;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ff6a00;
+        }
+
+        .container form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        form input {
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form button {
+            padding: 10px;
+            font-size: 1rem;
+            background: #ff6a00;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        form button:hover {
+            background: #e05e00;
+        }
+
+        .alt-options {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        .alt-options a {
+            text-decoration: none;
+            color: #ff6a00;
+            transition: color 0.3s;
+        }
+
+        .alt-options a:hover {
+            color: #e05e00;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .login-link a {
+            text-decoration: none;
+            background: #ffc107;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            color: #000;
+            transition: background 0.3s;
+        }
+
+        .login-link a:hover {
+            background: #e0a800;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Create Your Account</h2>
+        <form>
+            <input type="text" placeholder="Full Name" required>
+            <input type="email" placeholder="Email Address" required>
+            <input type="password" placeholder="Password" required>
+            <input type="password" placeholder="Confirm Password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+        <div class="login-link">
+            <a href="login.html">Back to Login</a>
+        </div>
+    </div>
+</body>
+</html>

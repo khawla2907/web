@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthy Recipes | Mindful Munch</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #f9f9f9;
+            color: #333;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            color: white;
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .navbar .logo img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .navbar .logo span {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .navbar .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .navbar .nav-links a:hover {
+            color: #ffc107;
+        }
+
+        .navbar .buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .navbar .buttons a {
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .navbar .buttons .login {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .navbar .buttons .login:hover {
+            background: white;
+            color: #ff6a00;
+        }
+
+        .navbar .buttons .connect {
+            background: #ffc107;
+            color: #000;
+            border: none;
+        }
+
+        .navbar .buttons .connect:hover {
+            background: #e0a800;
+        }
+
+        .container {
+            padding: 120px 40px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #ff6a00;
+            font-size: 2.5rem;
+        }
+
+        .recipe-section {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 60px;
+            line-height: 1.8;
+        }
+
+        .recipe-section:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .recipe-section img {
+            width: 50%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .recipe-content {
+            width: 50%;
+            font-size: 1.2rem;
+        }
+
+        .recipe-content h3 {
+            color: #ff6a00;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        .recipe-content p {
+            margin-bottom: 20px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+         
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #3a3a3a;
+            color: white;
+            font-size: 1rem;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        footer a {
+            color: #ff6a00;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #ff4500;
+        }
+
+        @media (max-width: 768px) {
+            .recipe-section {
+                flex-direction: column;
+            }
+
+            .recipe-section img, .recipe-content {
+                width: 100%;
+            }
+
+            .recipe-section:nth-child(even) {
+                flex-direction: column;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .recipe-content {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+         <!-- Navbar -->
+         <nav class="navbar">
+            <div class="logo">
+              
+                <span>Mindful Munch</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="quiz.html">Take the Quiz</a>
+                <a href="recipes.html">Healthy Recipes</a>
+               
+                <a href="hub.html">Mental Health Hub</a>
+            </div>
+            <div class="buttons">
+                <a href="login.html" class="login">Login</a>
+                <a href="signup.html" class="connect">Sign Up</a>
+            </div>
+        </nav>
+
+
+    <!-- Content -->
+    <div class="container">
+        <h1>Healthy Recipes</h1>
+
+        <div class="recipe-section">
+            <img src="images/ava.jpg" alt="Avocado Toast">
+            <div class="recipe-content">
+                <h3>Avocado Toast</h3>
+                <p>
+                    <strong>Ingredients:</strong><br>
+                    - 2 slices of whole-grain bread<br>
+                    - 1 ripe avocado<br>
+                    - 1 tsp lime juice<br>
+                    - A pinch of salt<br>
+                    - Chili flakes (optional)<br><br>
+                    <strong>Steps:</strong><br>
+                    1. Toast your bread slices until golden brown.<br>
+                    2. Mash the avocado in a bowl and mix with lime juice and salt.<br>
+                    3. Spread the avocado mixture over the toast.<br>
+                    4. Sprinkle chili flakes on top for an added kick.<br>
+                    5. Serve immediately and enjoy!
+                </p>
+            </div>
+        </div>
+
+        <div class="recipe-section">
+            <img src="images/b.jpg" alt="Berry Smoothie Bowl">
+            <div class="recipe-content">
+                <h3>Berry Smoothie Bowl</h3>
+                <p>
+                    <strong>Ingredients:</strong><br>
+                    - 1 cup frozen mixed berries<br>
+                    - 1 banana<br>
+                    - 1/2 cup almond milk<br>
+                    - Granola, fresh fruits, and chia seeds for topping<br><br>
+                    <strong>Steps:</strong><br>
+                    1. Blend the frozen berries, banana, and almond milk until smooth.<br>
+                    2. Pour the smoothie into a bowl.<br>
+                    3. Top with granola, fresh fruits, and chia seeds.<br>
+                    4. Serve immediately and enjoy this refreshing treat!
+                </p>
+            </div>
+        </div>
+
+        <div class="recipe-section">
+            <img src="images/cha=ia.png" alt="Chia Seed Pudding">
+            <div class="recipe-content">
+                <h3>Chia Seed Pudding</h3>
+                <p>
+                    <strong>Ingredients:</strong><br>
+                    - 3 tbsp chia seeds<br>
+                    - 1 cup almond milk<br>
+                    - 1 tsp honey or maple syrup<br>
+                    - Fresh fruits for topping<br><br>
+                    <strong>Steps:</strong><br>
+                    1. Mix the chia seeds, almond milk, and honey in a jar.<br>
+                    2. Cover and refrigerate overnight.<br>
+                    3. Stir well before serving.<br>
+                    4. Top with fresh fruits and enjoy!
+                </p>
+            </div>
+        </div>
+
+        <div class="recipe-section">
+            <img src="images/green.jpg" alt="Green Detox Juice">
+            <div class="recipe-content">
+                <h3>Green Detox Juice</h3>
+                <p>
+                    <strong>Ingredients:</strong><br>
+                    - 1 handful kale<br>
+                    - 1 handful spinach<br>
+                    - 1 cucumber<br>
+                    - 1 green apple<br>
+                    - Juice of 1 lemon<br><br>
+                    <strong>Steps:</strong><br>
+                    1. Combine all ingredients in a juicer.<br>
+                    2. Blend until smooth and strain if desired.<br>
+                    3. Pour into a glass and enjoy this energizing drink!
+                </p>
+            </div>
+        </div>
+    </div>
+
+     <!-- Footer -->
+     <footer>
+        <p>&copy; 2024 Mindful Munch. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+</body>
+</html>

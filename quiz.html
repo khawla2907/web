@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Mood Quiz | Mindful Munch</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ffecd1, #ffc107);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            color: white;
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .navbar .logo img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .navbar .logo span {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .navbar .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .navbar .nav-links a:hover {
+            color: #ffc107;
+        }
+
+        .navbar .buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .navbar .buttons a {
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .navbar .buttons .login {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .navbar .buttons .login:hover {
+            background: white;
+            color: #ff6a00;
+        }
+
+        .navbar .buttons .connect {
+            background: #ffc107;
+            color: #000;
+            border: none;
+        }
+
+        .navbar .buttons .connect:hover {
+            background: #e0a800;
+        }
+
+        /* Container Styles */
+        .container {
+            padding: 40px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 800px;
+            text-align: center;
+            margin-top: 100px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: #ff6a00;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .button {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .anonymous {
+            background: #ffc107;
+            color: #333;
+        }
+
+        .anonymous:hover {
+            background: #e0a800;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .login {
+            background: #ff6a00;
+            color: white;
+        }
+
+        .login:hover {
+            background: #cc5300;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .quiz-container {
+            display: none;
+            margin-top: 30px;
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .progress-bar {
+            width: 100%;
+            background: #f4f4f4;
+            border-radius: 30px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .progress-bar-fill {
+            height: 15px;
+            width: 0;
+            background: #ff6a00;
+            transition: width 0.4s ease;
+        }
+
+        .quiz-question {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .quiz-options {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+
+        .quiz-options li {
+            margin: 10px 0;
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .quiz-options li:hover {
+            background: #ffe3b3;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .quiz-options input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .submit-quiz {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #ff6a00;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .submit-quiz:hover {
+            background: #cc5300;
+        }
+
+        .recommendations {
+            display: none;
+            margin-top: 50px;
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .recommendations h2 {
+            color: #ff6a00;
+            margin-bottom: 20px;
+        }
+
+        .recommendations p {
+            line-height: 1.6;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <span>Mindful Munch</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="quiz.html">Take the Quiz</a>
+            <a href="recipes.html">Healthy Recipes</a>
+            <a href="hub.html">Mental Health Hub</a>
+        </div>
+        <div class="buttons">
+            <a href="login.html" class="login">Login</a>
+            <a href="signup.html" class="connect">Sign Up</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Interactive Mood Quiz</h1>
+        <p>Take our quick mood quiz to get personalized recommendations based on your responses and eating habits. Login to save your progress or proceed anonymously.</p>
+
+        <div class="buttons">
+            <button class="button anonymous" id="anonymousQuiz">Take Quiz Anonymously</button>
+            <button class="button login" onclick="location.href='login.html'">Login to Save Results</button>
+        </div>
+
+        <!-- Quiz Section -->
+        <div class="quiz-container" id="quizContainer">
+            <div class="progress-bar">
+                <div class="progress-bar-fill" id="progressBar"></div>
+            </div>
+            <div class="quiz-question" id="quizQuestion">Question will appear here</div>
+            <ul class="quiz-options" id="quizOptions"></ul>
+            <button class="submit-quiz" id="submitQuiz">Next</button>
+        </div>
+
+        <!-- Recommendations Section -->
+        <div class="recommendations" id="recommendations">
+            <h2>Your Personalized Recommendations</h2>
+            <p id="recommendationsText">Based on your answers, here are some tips to improve your mood and eating habits.</p>
+        </div>
+    </div>
+
+    <script>
+        // Quiz Questions and Recommendations
+        const quizQuestions = [
+            {
+                question: "How are you feeling today?",
+                options: ["Happy", "Stressed", "Tired", "Anxious"],
+                recommendations: {
+                    Happy: "Happiness is contagious! Keep up your good mood with regular exercise and sharing positive experiences with friends.",
+                    Stressed: "Stress management is crucial. Engage in relaxation techniques like meditation and consume foods rich in magnesium, such as spinach or almonds.",
+                    Tired: "Combat fatigue by prioritizing hydration and eating energy-boosting snacks like bananas and nuts. Ensure 7-9 hours of quality sleep.",
+                    Anxious: "Address anxiety by practicing mindfulness and grounding techniques. Incorporate calming teas like chamomile into your day."
+                }
+            },
+            {
+                question: "What type of food do you usually crave?",
+                options: ["Sweet", "Salty", "Fried", "Healthy"],
+                recommendations: {
+                    Sweet: "Curb sweet cravings with naturally sweet fruits like apples or berries. Consider snacks like yogurt with honey for a healthy alternative.",
+                    Salty: "Salty cravings can indicate dehydration. Drink plenty of water and replace processed snacks with lightly salted nuts or popcorn.",
+                    Fried: "If you crave fried foods, try healthier air-fried versions. Balance your diet with fresh salads and whole grains.",
+                    Healthy: "Great job! Continue incorporating diverse vegetables and lean proteins into your meals for optimal health."
+                }
+            },
+            {
+                question: "How often do you skip meals?",
+                options: ["Never", "Sometimes", "Often", "Always"],
+                recommendations: {
+                    Never: "That's wonderful! Maintaining consistent meals helps regulate energy and improves overall health.",
+                    Sometimes: "Try planning your meals ahead to avoid skipping. Carry healthy snacks like trail mix to stay nourished on busy days.",
+                    Often: "Skipping meals can harm metabolism. Set reminders to eat smaller, frequent meals to maintain energy.",
+                    Always: "Consistently skipping meals may require lifestyle changes. Consult a nutritionist for a sustainable eating schedule."
+                }
+            },
+            {
+                question: "How many hours of sleep do you usually get at night?",
+                options: ["Less than 4", "4-6", "6-8", "More than 8"],
+                recommendations: {
+                    "Less than 4": "Sleeping less than 4 hours is harmful. Prioritize sleep hygiene and avoid caffeine in the evenings.",
+                    "4-6": "Aim to extend your sleep duration to 7-8 hours by creating a relaxing bedtime routine.",
+                    "6-8": "This is a healthy range. Continue your good habits and avoid screen time before bed.",
+                    "More than 8": "Excessive sleep can indicate underlying issues. Focus on balanced physical activity to complement rest."
+                }
+            }
+        ];
+
+        let currentQuestion = 0;
+        const progressBar = document.getElementById("progressBar");
+        const recommendationsText = document.getElementById("recommendationsText");
+
+        document.getElementById("anonymousQuiz").addEventListener("click", () => {
+            document.getElementById("quizContainer").style.display = "block";
+            showQuestion();
+        });
+
+        const showQuestion = () => {
+            const questionElement = document.getElementById("quizQuestion");
+            const optionsElement = document.getElementById("quizOptions");
+
+            questionElement.textContent = quizQuestions[currentQuestion].question;
+            optionsElement.innerHTML = "";
+
+            quizQuestions[currentQuestion].options.forEach((option, index) => {
+                const li = document.createElement("li");
+                li.innerHTML = `<input type="radio" name="option" value="${option}" id="option${index}">
+                                <label for="option${index}">${option}</label>`;
+                optionsElement.appendChild(li);
+            });
+
+            // Update Progress Bar
+            progressBar.style.width = `${((currentQuestion + 1) / quizQuestions.length) * 100}%`;
+        };
+
+        const submitQuiz = () => {
+            const selectedOption = document.querySelector('input[name="option"]:checked');
+            if (!selectedOption) {
+                alert("Please select an option before proceeding.");
+                return;
+            }
+
+            const userAnswer = selectedOption.value;
+            const currentRecommendations = quizQuestions[currentQuestion].recommendations[userAnswer];
+
+            if (currentQuestion < quizQuestions.length - 1) {
+                currentQuestion++;
+                showQuestion();
+            } else {
+                document.getElementById("quizContainer").style.display = "none";
+                document.getElementById("recommendations").style.display = "block";
+                recommendationsText.textContent = currentRecommendations;
+            }
+        };
+
+        document.getElementById("submitQuiz").addEventListener("click", submitQuiz);
+    </script>
+
+</body>
+</html>

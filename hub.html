@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Hub | Mindful Munch</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #f9f9f9;
+            color: #333;
+        }
+
+      /* Navbar Styles */
+      .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            color: white;
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .navbar .logo img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .navbar .logo span {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .navbar .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .navbar .nav-links a:hover {
+            color: #ffc107;
+        }
+
+        .navbar .buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .navbar .buttons a {
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .navbar .buttons .login {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .navbar .buttons .login:hover {
+            background: white;
+            color: #ff6a00;
+        }
+
+        .navbar .buttons .connect {
+            background: #ffc107;
+            color: #000;
+            border: none;
+        }
+
+        .navbar .buttons .connect:hover {
+            background: #e0a800;
+        }
+
+        .container {
+            padding: 120px 40px;
+        }
+
+
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #333;
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border-bottom: 3px solid #ff6a00;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        section {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        section:hover {
+            transform: translateY(-10px);
+        }
+
+        section h2 {
+            font-size: 1.8rem;
+            color: #ff6a00;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: #ff6a00;
+            bottom: -5px;
+            left: 0;
+        }
+
+        section p {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        section ul li {
+            margin-bottom: 10px;
+        }
+
+        section ul li a {
+            color: #ff6a00;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        section ul li a:hover {
+            color: #ff4500;
+        }
+
+        .emergency-box {
+            background: linear-gradient(135deg, #ff6a00, #ff4500);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .emergency-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .emergency-box h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .emergency-box p {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .emergency-box a {
+            color: white;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #3a3a3a;
+            color: white;
+            font-size: 1rem;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        footer a {
+            color: #ff6a00;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #ff4500;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                margin-top: 10px;
+            }
+
+            h1 {
+                font-size: 2.4rem;
+            }
+
+            section {
+                padding: 20px;
+            }
+
+            .emergency-box h3 {
+                font-size: 1.6rem;
+            }
+
+            .emergency-box p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+     <!-- Navbar -->
+     <nav class="navbar">
+        <div class="logo">
+          
+            <span>Mindful Munch</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="quiz.html">Take the Quiz</a>
+            <a href="recipes.html">Healthy Recipes</a>
+           
+            <a href="hub.html">Mental Health Hub</a>
+        </div>
+        <div class="buttons">
+            <a href="login.html" class="login">Login</a>
+            <a href="signup.html" class="connect">Sign Up</a>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <div class="container">
+        <h1>Mental Health Hub</h1>
+
+        <section>
+            <h2>About the Hub</h2>
+            <p>Welcome to the Mental Health Hub. This is your go-to space for tools and resources to support your emotional well-being. We provide self-help tips and connections to professional support.</p>
+        </section>
+
+        <section>
+            <h2>Find a Counselor</h2>
+            <p>Get connected with licensed mental health professionals for teletherapy or in-person counseling. Reach out for help when you need it.</p>
+            <p><strong>Example Resources:</strong></p>
+            <ul>
+                <li><a href="https://betterhelp.com" target="_blank">BetterHelp</a></li>
+                <li><a href="https://talkspace.com" target="_blank">Talkspace</a></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Emergency Resources</h2>
+            <div class="emergency-box">
+                <h3>Need Immediate Help?</h3>
+                <p>Contact the following hotlines for urgent assistance:</p>
+                <p><strong>National Suicide Prevention Lifeline:</strong> 1-800-273-TALK</p>
+                <p><strong>Crisis Text Line:</strong> Text HOME to 741741</p>
+                
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Mindful Munch. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+</body>
+</html>
