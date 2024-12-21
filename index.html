@@ -34,11 +34,6 @@
             gap: 10px;
         }
 
-        .navbar .logo img {
-            width: 50px;
-            height: 50px;
-        }
-
         .navbar .logo span {
             font-size: 2rem;
             font-weight: bold;
@@ -95,256 +90,104 @@
             background: #e0a800;
         }
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/bg.jpg') no-repeat center center/cover;
-            height: 100vh;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
             flex-direction: column;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .hero .cta-buttons {
-            display: flex;
-            gap: 20px;
-        }
-
-        .hero .cta-buttons a {
-            background: #ff6a00;
-            border: none;
-            color: white;
-            padding: 0.8rem 2rem;
-            border-radius: 30px;
-            font-size: 1rem;
-            text-decoration: none;
+            gap: 5px;
             cursor: pointer;
-            transition: background 0.3s;
         }
 
-        .hero .cta-buttons a:hover {
-            background: #ee0979;
-        }
-
-        /* Features Section */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            padding: 3rem 2rem;
-            background: #f9f9f9;
-            text-align: center;
-        }
-
-        .features div {
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
             background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 2rem;
-        }
-
-        .features h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: #ff6a00;
-        }
-
-        .features p {
-            font-size: 1rem;
-            color: #555;
-        }
-
-        /* Call-to-Action Section */
-        .cta-section {
-            background: linear-gradient(90deg, #ff6a00, #ffc107);
-            color: white;
-            text-align: center;
-            padding: 4rem 2rem;
-        }
-
-        .cta-section h2 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .cta-section p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-        }
-
-        .cta-section a {
-            background: white;
-            color: #ff6a00;
-            padding: 0.8rem 2rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1rem;
             transition: all 0.3s;
         }
 
-        .cta-section a:hover {
-            background: #ff6a00;
-            color: white;
-        }
-
-        /* Testimonials Section */
-        .testimonials {
-            background: #f9f9f9;
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-
-        .testimonials h2 {
-            font-size: 2.5rem;
-            color: #ff6a00;
-            margin-bottom: 2rem;
-        }
-
-        .testimonials .testimonial {
-            max-width: 800px;
-            margin: 0 auto 2rem;
-            color: #555;
-            background: white;
-            border-radius: 10px;
-            padding: 2rem;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .testimonials .testimonial:before {
-            content: '"';
-            font-size: 4rem;
-            color: #ff6a00;
-            position: absolute;
-            top: 10px;
-            left: 20px;
-            opacity: 0.2;
-        }
-
-        .testimonials .testimonial p {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            font-style: italic;
-        }
-
-        .testimonials .testimonial span {
-            display: block;
-            font-weight: bold;
-            color: #333;
-        }
-
-        .testimonials .testimonial:nth-child(odd) {
-            background: #ffecd1;
-        }
-
-        .testimonials .testimonial:nth-child(even) {
-            background: #fff7e6;
-        }
-
-        
-        footer {
-            text-align: center;
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            position: fixed;
+            top: 70px;
+            right: 0;
+            width: 70%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.9);
             padding: 20px;
-            background: #3a3a3a;
-            color: white;
-            font-size: 1rem;
-            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+            gap: 20px;
+            z-index: 999;
         }
 
-        footer a {
-            color: #ff6a00;
+        .mobile-menu a {
             text-decoration: none;
-            font-weight: bold;
+            color: white;
+            font-size: 1.2rem;
             transition: color 0.3s;
         }
 
-        footer a:hover {
-            color: #ff4500;
+        .mobile-menu a:hover {
+            color: #ffc107;
+        }
+
+        .mobile-menu .buttons {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .show-menu {
+            display: flex;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                padding: 10px 20px;
+            .navbar .nav-links,
+            .navbar .buttons {
+                display: none;
             }
 
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1.2rem;
-            }
-
-            .hero .cta-buttons {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .features {
-                grid-template-columns: 1fr;
-            }
-
-            .cta-section h2 {
-                font-size: 2rem;
-            }
-
-            .cta-section p {
-                font-size: 1rem;
-            }
-
-            .testimonials .testimonial {
-                padding: 1.5rem;
-            }
-
-            .navbar .nav-links {
-                flex-direction: column;
-                align-items: center;
-                gap: 15px;
-            }
-
-            footer .socials {
-                flex-direction: column;
-                gap: 10px;
+            .hamburger {
+                display: flex;
             }
         }
     </style>
 </head>
 <body>
-          <!-- Navbar -->
-          <nav class="navbar">
-            <div class="logo">
-              
-                <span>Mindful Munch</span>
-            </div>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="quiz.html">Take the Quiz</a>
-                <a href="recipes.html">Healthy Recipes</a>
-               
-                <a href="hub.html">Mental Health Hub</a>
-            </div>
-            <div class="buttons">
-                <a href="login.html" class="login">Login</a>
-                <a href="signup.html" class="connect">Sign Up</a>
-            </div>
-        </nav>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <span>Mindful Munch</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="quiz.html">Take the Quiz</a>
+            <a href="recipes.html">Healthy Recipes</a>
+            <a href="hub.html">Mental Health Hub</a>
+        </div>
+        <div class="buttons">
+            <a href="login.html" class="login">Login</a>
+            <a href="signup.html" class="connect">Sign Up</a>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="quiz.html">Take the Quiz</a>
+        <a href="recipes.html">Healthy Recipes</a>
+        <a href="hub.html">Mental Health Hub</a>
+        <div class="buttons">
+            <a href="login.html" class="login">Login</a>
+            <a href="signup.html" class="connect">Sign Up</a>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -356,54 +199,17 @@
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features">
-        <div>
-            <h3>Interactive Mood Quiz</h3>
-            <p>Understand your emotional state and get personalized recommendations tailored to your needs.</p>
-        </div>
-        <div>
-            <h3> Healthy Recipes</h3>
-            <p>Discover easy-to-prepare snack recipes designed to support healthy eating habits</p>
-        </div>
-        
-        <div>
-            <h3>Progress Tracking</h3>
-            <p>Log your mood and habits over time to gain better control over emotional eating.</p>
-        </div>
-    </section>
+    <!-- Add other sections here -->
 
-    <!-- Call-to-Action Section -->
-    <section class="cta-section">
-        <h2>Ready to Start Your Journey?</h2>
-        <p>Sign up today and unlock access to personalized recommendations, progress tracking, and more!</p>
-        <a href="signup.html">Get Started</a>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-        <h2>What Our Users Say</h2>
-        <div class="testimonial">
-            <p>"Mindful Munch helped me take control of my emotional eating habits. The tools are so easy to use!"</p>
-            <span>- Alex T.</span>
-        </div>
-        <div class="testimonial">
-            <p>"The Mood Quiz is a game-changer. I feel more mindful and in control every day!"</p>
-            <span>- Emily R.</span>
-        </div>
-        <div class="testimonial">
-            <p>"The recipes are absolutely amazing! I never thought healthy eating could be this delicious."</p>
-            <span>- Jordan M.</span>
-        </div>
-        <div class="testimonial">
-            <p>"Using the mindfulness tools has made such a difference in my daily routine. Highly recommended!"</p>
-            <span>- Taylor L.</span>
-        </div>
-    </section>
-
-     <!-- Footer -->
-     <footer>
+    <footer>
         <p>&copy; 2024 Mindful Munch. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('show-menu');
+        }
+    </script>
 </body>
 </html>
