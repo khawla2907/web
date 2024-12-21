@@ -309,25 +309,39 @@
     </style>
 </head>
 <body>
-     <!-- Navbar -->
-     <nav class="navbar">
+       <!-- Navbar -->
+    <nav class="navbar">
         <div class="logo">
-          
             <span>Mindful Munch</span>
         </div>
         <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="quiz.html">Take the Quiz</a>
             <a href="recipes.html">Healthy Recipes</a>
-           
             <a href="hub.html">Mental Health Hub</a>
         </div>
         <div class="buttons">
             <a href="login.html" class="login">Login</a>
             <a href="signup.html" class="connect">Sign Up</a>
         </div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </nav>
 
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="quiz.html">Take the Quiz</a>
+        <a href="recipes.html">Healthy Recipes</a>
+        <a href="hub.html">Mental Health Hub</a>
+        <div class="buttons">
+            <a href="login.html" class="login">Login</a>
+            <a href="signup.html" class="connect">Sign Up</a>
+        </div>
+    </div>
     <!-- Content -->
     <div class="container">
         <h1>Mental Health Hub</h1>
